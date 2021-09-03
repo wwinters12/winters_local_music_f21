@@ -1,6 +1,5 @@
 from flask import render_template
 from app import app
-from random import randint
 
 
 @app.route('/')
@@ -8,9 +7,16 @@ from random import randint
 def index():
     return render_template('index.html')
 
-# @app.route('/jokes')
-# def jokes():
-#    jokes = ["I invented a new word! ... Plagiarism!",
-#              "Why do we tell actors to “break a leg? ... Because every play has a cast.",
-#              "Knock! Knock! ... Who’s there? ... Control Freak. ... Con… ... OK, now you say, “Control Freak who?” "]
-#    return jokes[randint(0, len(jokes) - 1)]
+
+@app.route('/artists')
+def artists():
+    return render_template('artists.html')
+
+
+@app.route('/new_artists')
+def new_artists():
+    return render_template('new_artists.html')
+
+@app.route('/artist')
+def artist():
+    return render_template('artist.html')
