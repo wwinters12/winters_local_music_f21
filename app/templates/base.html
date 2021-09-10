@@ -4,9 +4,21 @@
         <title>Welcome to Ithaca Music</title>
     </head>
     <body>
-    <div><a href="/index"><b>Ithaca Music: </b></a><a href="/artists">Artists  </a>
-        <a href="/new_artists"> New Artists </a></div>
+    <div>
+        <a href="/index"><b>Ithaca Music:</b></a>
+        <a href="/artists">Artists</a>
+        <a href="/new_artists">New Artists</a>
+    </div>
         <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         {% block content %}{% endblock %}
     </body>
 </html>

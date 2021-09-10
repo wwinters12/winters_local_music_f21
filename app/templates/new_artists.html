@@ -1,11 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <head>
-        <title>Welcome to Ithaca Music</title>
-    </head>
-    <body>
-    <h2>Create a New Artist</h2>
-    <p>Page Under Construction!</p>
-    </body>
+    <h1>Create a New Account</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.artist.label }}<br>
+            {{ form.artist(size=32) }}<br>
+            {% for error in form.artist.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.hometown.label }}<br>
+            {{ form.hometown(size=32) }}<br>
+            {% for error in form.hometown.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=128) }}<br>
+            {% for error in form.description.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
 {% endblock %}
